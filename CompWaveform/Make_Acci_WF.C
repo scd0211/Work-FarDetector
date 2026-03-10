@@ -120,7 +120,7 @@ void Make_Acci_WF(int period=1, int run=422, int subrun=0, const char *outdir=".
 		Edelayed1=700;
 		Edelayed2=1000;
 	}
-	if(period==2)
+	if(period==2){
 		Eprompt1=3000;
 		Eprompt2=8000;
 		Edelayed1=800;
@@ -156,17 +156,17 @@ double pmtQ2[172];
 double prompt_pmtQ[172];
 
 
-vector<int>    v_trig;
-vector<int>    v_evt;
-vector<double> v_time;
-vector<double> v_charge;
-vector<int>    v_isPrompt;
-vector<int>    v_isDelayed;
-vector<int>    v_run;
-vector<int>    v_subrun;
-vector<double>    v_vertx;
-vector<double>    v_verty;
-vector<double>    v_vertz;
+std::vector<int>    v_trig;
+std::vector<int>    v_evt;
+std::vector<double> v_time;
+std::vector<double> v_charge;
+std::vector<int>    v_isPrompt;
+std::vector<int>    v_isDelayed;
+std::vector<int>    v_run;
+std::vector<int>    v_subrun;
+std::vector<double>    v_vertx;
+std::vector<double>    v_verty;
+std::vector<double>    v_vertz;
 
 std::vector<std::vector<double>> all_pmtQ;
 std::vector<std::vector<double>> all_pedestal;
@@ -398,10 +398,10 @@ for (int iEntry = 0; iEntry < nTot; iEntry++) {
 			v_verty.push_back(v3.Y());
 			v_vertz.push_back(v3.Z());
 			v_isPrompt.push_back(isPrompt);
-			v_isDelayed.push_back(isPrompt);
+			v_isDelayed.push_back(isDelayed);
 			all_pmtQ.emplace_back(pmtQ,pmtQ + NPMT);
 			all_pedestal.emplace_back(ped,ped + NPMT);
-			all_pmtQ.emplace_back(pedvar,pedvar + NPMT);
+			all_pedvar.emplace_back(pedvar,pedvar + NPMT);
 		}
 
 
