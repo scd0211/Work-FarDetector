@@ -1,0 +1,14 @@
+#!/bin/bash
+
+source ~/setup.sh
+
+user=`whoami`
+
+
+rm -f acci/scan_bin/*
+
+for(( refbin=4500 ; refbin <= 6500 ; refbin++));				
+	do
+		bsub -q s -o /dev/null root -l -b -q DrawScoreAcci2.C\(${refbin}\)
+done
+
